@@ -1,0 +1,72 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+#include <windows.h>
+using namespace std;
+
+struct nilai
+{
+ int nim;
+ char nama[20];
+ int nilai_tugas;
+ int nilai_harian1;
+ int nilai_harian2;
+ int nilai_akhir;
+ char nilai_huruf;
+};
+main()
+{
+ nilai nil[5];
+ int i, data;
+
+ cout<<"PROGRAM MENGHITUNG NILAI AKHIR DAN GRADE MAHASISWA\n"<<endl;
+ cout<<"Silahkan Input NIM, Nama, Nilai Tugas, UTS serta UAS"<<endl;
+ cout<<"Kami akan menghitung Nilai Akhir dan Grade anda\n"<<endl;
+ cout<<"Jumlah Mahasiswa = ";cin>>data;
+ for(i=0; i<data; i++)
+ {
+  cout<<"\n====================================================="<<endl;
+  cout<<"NIM \t\t: ";cin>>nil[i].nim;
+  cout<<"Nama \t\t: ";cin>>nil[i].nama;
+  cout<<"Nilai Tugas \t: ";cin>>nil[i].nilai_tugas;
+  cout<<"Nilai HARIAN1 \t: ";cin>>nil[i].nilai_harian1;
+  cout<<"Nilai HARIAN2 \t: ";cin>>nil[i].nilai_harian2;
+  nil[i].nilai_akhir=(nil[i].nilai_tugas*20/100)+(nil[i].nilai_harian1*35/100)+(nil[i].nilai_harian2*45/100);
+  if(nil[i].nilai_akhir>85&&nil[i].nilai_akhir<=100)
+  {
+   nil[i].nilai_huruf='A';
+  }
+  else if(nil[i].nilai_akhir>70&&nil[i].nilai_akhir<=85)
+  {
+   nil[i].nilai_huruf='B';
+  }
+  else if(nil[i].nilai_akhir>55&&nil[i].nilai_akhir<=70)
+  {
+   nil[i].nilai_huruf='C';
+  }
+  else if(nil[i].nilai_akhir>40&&nil[i].nilai_akhir<=55)
+  {
+   nil[i].nilai_huruf='D';
+  }
+  else
+  {
+   nil[i].nilai_huruf='E';
+  }
+  cout<<endl;
+ }
+
+ system("CLS");
+ cout<<"Lembar Hasil Nilai Akhir dan Grade"<<endl;
+ for(i=0; i<data; i++)
+ {
+ cout<<"\n====================================================="<<endl;
+ cout<<"NIM \t\t: "<<nil[i].nim<<endl;
+ cout<<"Nama \t\t: "<<nil[i].nama<<endl;
+ cout<<"Nilai Tugas \t: "<<nil[i].nilai_tugas<<endl;
+ cout<<"Nilai HARIAN1 \t: "<<nil[i].nilai_harian1<<endl;
+ cout<<"Nilai HARIAN2 \t: "<<nil[i].nilai_harian2<<endl;
+ cout<<"Nilai Akhir \t: "<<nil[i].nilai_akhir<<endl;
+ cout<<"Grade \t\t: "<<nil[i].nilai_huruf<<endl;
+ }
+ getch();
+}
